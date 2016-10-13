@@ -16,14 +16,15 @@ public class OrderServiceTest extends JerseyTest {
     }
 
     @Test
-    public void ordersPathParamTest() {
-        String response = target("orders/453").request().get(String.class);
-        Assert.assertTrue("orderId: 453".equals(response));
+    public void nameTest() {
+        String response = target("/Jean").request().get(String.class);
+        Assert.assertTrue("Bonjour : Jean".equals(response));
     }
 
     @Test
-    public void ordersFixedPathTest() {
-        String response = target("orders/summary").request().get(String.class);
-        Assert.assertTrue("orders summary".equals(response));
+    public void notNameTest() {
+        String response = target("/Truc").request().get(String.class);
+        Assert.assertTrue("Bonjour : Truc".equals(response));
     }
+
 }
